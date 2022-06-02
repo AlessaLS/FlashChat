@@ -7,26 +7,28 @@
 //
 
 import UIKit
-
+import CLTypingLabel
+//CLTypingLabel refers to the pod we bring to our app for our animation
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var titleLabel: CLTypingLabel!
+   // we change UILabel! for CLTypingLabel as well the class in the identifier for this label.
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loop for FlashCaht animation.
-        titleLabel.text = ""
-        var characterIndex = 0.0
-        let titleText = "⚡️FlashChat"
-        for letter in titleText {
-            print("-")
-            print(01 * characterIndex)
-            print(letter)
-            Timer.scheduledTimer(withTimeInterval: 0.1 * characterIndex, repeats: false) { (timer) in
-                self.titleLabel.text?.append(letter)
-            }
-            characterIndex += 1
-        }
+        
+        titleLabel.text = K.appName
+        //loop for FlashCaht animation wrote in our code, but we call a pod insted to reduce the number of lines.
+        
+//        titleLabel.text = ""
+//        var characterIndex = 0.0
+//        let titleText = K.appName
+//        for letter in titleText {
+//            Timer.scheduledTimer(withTimeInterval: 0.1 * characterIndex, repeats: false) { (timer) in
+//                self.titleLabel.text?.append(letter)
+//            }
+//            characterIndex += 1
+//        }
+        
     }
 }
