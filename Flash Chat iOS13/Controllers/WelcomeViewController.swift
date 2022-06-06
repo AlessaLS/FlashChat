@@ -13,10 +13,17 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: CLTypingLabel!
    // we change UILabel! for CLTypingLabel as well the class in the identifier for this label.
-  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         titleLabel.text = K.appName
         //loop for FlashCaht animation wrote in our code, but we call a pod insted to reduce the number of lines.
         
